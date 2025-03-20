@@ -1,0 +1,29 @@
+{
+  "name": "minecraft-gamertag-application",
+  "version": "1.0.0",
+  "description": "Form application for register minecraft gamertag to join whitelist Galaxy Universe Server",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MGalaCyber/Minecraft-Gamertag-Application.git"
+  },
+  "author": "MGalaCyber",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MGalaCyber/Minecraft-Gamertag-Application/issues"
+  },
+  "homepage": "https://github.com/MGalaCyber/Minecraft-Gamertag-Application#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}
