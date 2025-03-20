@@ -27,13 +27,6 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-app.get("/proxy", async (req, res) => {
-    const response = await Fetch("http://play.universesmp.xyz:25615/");
-    const body = await response.text();
-    res.send(body);
-});
-
-
 app.use((req, res) => {
     res.redirect("/");
 });
