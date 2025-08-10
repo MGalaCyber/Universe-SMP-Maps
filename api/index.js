@@ -30,7 +30,13 @@ app.get("/", (req, res) => {
 
 app.use("/proxy", proxy("http://play.universesmp.xyz:25615", {
     proxyReqPathResolver: (req) => {
-        return req.originalUrl.replace("/proxy", "");
+        const targetPath = req.originalUrl.replace(/^\/proxy/, "");
+        console.log(`Proxying to: http://play.universesmp.xyz:25615${targetPath}`);
+        return targetPath;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+        console.log(`Response status: ${proxyRes.statusCode} for ${userReq.originalUrl}`);
+        return proxyResData;
     }
 }));
 
