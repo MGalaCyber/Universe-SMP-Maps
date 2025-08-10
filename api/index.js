@@ -1,5 +1,6 @@
 const Fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const CookieParser = require("cookie-parser");
+const proxy = require("express-http-proxy");
 const Express = require("express");
 const Cors = require("cors");
 const Path = require("path");
@@ -26,6 +27,8 @@ app.use(Express.static(Path.join(__dirname, "../assets")));
 app.get("/", (req, res) => {
     res.render("index");
 });
+
+app.use("/proxy", proxy("http://play.universesmp.xyz:25615"));
 
 app.use((req, res) => {
     res.redirect("/");
