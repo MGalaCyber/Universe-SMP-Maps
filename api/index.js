@@ -28,7 +28,11 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-app.use("/proxy", proxy("http://play.universesmp.xyz:25615"));
+app.use("/proxy", proxy("http://play.universesmp.xyz:25615", {
+    proxyReqPathResolver: (req) => {
+        return req.originalUrl.replace("/proxy", "");
+    }
+}));
 
 app.use((req, res) => {
     res.redirect("/");
